@@ -90,6 +90,9 @@ main h1 {
 }
 
 .card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 18px;
@@ -107,7 +110,9 @@ main h1 {
 }
 
 .content {
-    padding: 1.5rem;
+    padding: 1.25rem 1.5rem 1.5rem;
+    display: grid;
+    gap: 1rem;
 }
 
 .bio {
@@ -118,12 +123,41 @@ main h1 {
 
 .profile-img,
 .card-img {
-    width: 100%;
-    max-width: 260px;
-    border-radius: 18px;
-    border: 1px solid #ddd;
+    display: block;
+    width: min(100%, 360px);
+    margin: 1rem auto 0;
+    border-radius: 24px;
+    border: 1px solid rgba(34, 34, 34, 0.08);
     object-fit: cover;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 18px 38px rgba(30, 77, 107, 0.16);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 248, 252, 0.98));
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-img:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 45px rgba(30, 77, 107, 0.22);
+}
+
+.card-img[src$=".svg"] {
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.96);
+}
+
+.card.about .card-img,
+.card.resources .card-img {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+}
+
+.card.about .content,
+.card.resources .content {
+    padding-top: 1.25rem;
 }
 
 .location {
