@@ -1,0 +1,115 @@
+/* temples-large.css – Desktop Enhancements (768px and Up)
+   Overrides for tablet and desktop layouts only.
+   No base styles – only properties that change from mobile.
+   Loaded with media="screen and (min-width: 768px)"
+*/
+
+/* ============================================
+   HEADER & NAVIGATION – Desktop Layout
+   ============================================ */
+.header-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hamburger {
+    display: none;
+}
+
+.main-nav {
+    max-height: none;
+    overflow: visible;
+}
+
+.main-nav ul {
+    flex-direction: row;
+    gap: var(--space-md);
+}
+
+.main-nav .nav-link {
+    font-size: var(--font-size-base);
+    padding: var(--space-sm) var(--space-lg);
+}
+
+/* ============================================
+   GRID LAYOUT – Multi-Column
+   ============================================ */
+.grid-container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-xl);
+}
+
+/* ============================================
+   CARD ENHANCEMENTS – Desktop
+   ============================================ */
+.temple-card img {
+    height: 260px;
+    transition: transform var(--transition-smooth);
+}
+
+.temple-card:hover img {
+    transform: scale(1.02);
+}
+
+.temple-card figcaption {
+    font-size: var(--font-size-xl);
+    padding: var(--space-lg);
+}
+
+/* ============================================
+   HEADER TYPOGRAPHY – Desktop
+   ============================================ */
+header h1 {
+    font-size: var(--font-size-2xl);
+}
+
+/* ============================================
+   FOOTER – Desktop Enhancements
+   ============================================ */
+.site-footer {
+    padding: var(--space-3xl) var(--space-lg);
+}
+
+.footer-content {
+    gap: var(--space-md);
+}
+
+.copyright {
+    font-size: var(--font-size-xl);
+}
+
+.last-modified {
+    font-size: var(--font-size-base);
+}
+
+.copyright::after {
+    width: 60px;
+    margin: var(--space-md) auto 0;
+}
+
+/* ============================================
+   LARGE DESKTOP OPTIMIZATION (1024px+)
+   ============================================ */
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-2xl);
+    }
+
+    .temple-card img {
+        height: 300px;
+    }
+
+    .temple-card figcaption {
+        font-size: var(--font-size-2xl);
+    }
+
+    header h1 {
+        font-size: var(--font-size-3xl);
+    }
+
+    main {
+        padding: var(--space-3xl) var(--space-xl);
+    }
+}

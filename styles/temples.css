@@ -1,25 +1,22 @@
-/* temples.css – Fully Refactored, Zero Duplicate Selectors
-   Each class selector appears exactly ONCE at top level
-   Responsive changes happen ONLY inside @media queries
+/* temples.css – Mobile-First Base Styles
+   Base mobile styles only – no duplicate selectors with large.css
 */
 
 /* ============================================
    CSS CUSTOM PROPERTIES (Design Tokens)
    ============================================ */
 :root {
-    /* Color Palette – WCAG AA Compliant */
-    --color-primary: #1d4ed8;        /* Rich blue – brand color (contrast OK) */
-    --color-primary-hover: #1e40af;  /* Darker for hover */
-    --color-accent: #f59e0b;         /* Warm amber for highlights */
-    --color-background: #f8fafc;     /* Light slate background */
-    --color-surface: #ffffff;        /* White surface */
-    --color-text-heading: #0f172a;   /* Deep slate – excellent contrast */
-    --color-text-body: #334155;      /* Medium slate for body text */
-    --color-border: #e2e8f0;         /* Light border */
-    --color-footer-dark: #1e293b;    /* Footer gradient end */
+    --color-primary: #1d4ed8;
+    --color-primary-hover: #1e40af;
+    --color-accent: #f59e0b;
+    --color-background: #f8fafc;
+    --color-surface: #ffffff;
+    --color-text-heading: #0f172a;
+    --color-text-body: #334155;
+    --color-border: #e2e8f0;
+    --color-footer-dark: #1e293b;
     --color-shadow: rgba(0, 0, 0, 0.08);
 
-    /* Typography */
     --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-size-sm: 0.875rem;
@@ -29,7 +26,6 @@
     --font-size-2xl: 2rem;
     --font-size-3xl: 2.5rem;
 
-    /* Spacing Scale */
     --space-sm: 0.5rem;
     --space-md: 1rem;
     --space-lg: 1.5rem;
@@ -37,30 +33,24 @@
     --space-2xl: 3rem;
     --space-3xl: 4rem;
 
-    /* Borders & Radius */
     --border-radius-sm: 8px;
     --border-radius-md: 12px;
     --border-radius-lg: 16px;
 
-    /* Shadows */
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.12);
     --shadow-hover: 0 16px 32px rgba(0, 0, 0, 0.16);
 
-    /* Transitions */
     --transition-fast: 150ms ease;
     --transition-smooth: 250ms ease;
     --transition-slow: 400ms ease;
 
-    /* Layout */
     --max-width-container: 1400px;
     --max-width-content: 1200px;
 }
 
-/* ============================================
-   RESET & BASE STYLES
-   ============================================ */
+/* Reset & Base */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -86,7 +76,7 @@ body {
 }
 
 /* ============================================
-   HEADER & NAVIGATION – SINGLE CONSOLIDATED RULE
+   HEADER & NAVIGATION – Mobile Base Styles
    ============================================ */
 header {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
@@ -110,12 +100,11 @@ header h1 {
     max-width: var(--max-width-container);
     margin: 0 auto;
     display: flex;
-    flex-direction: column;      /* Mobile: stack vertically */
+    flex-direction: column;
     gap: var(--space-md);
-    position: relative;          /* positioning context for hamburger */
+    position: relative;
 }
 
-/* Hamburger Icon – Mobile Only (single rule) */
 .hamburger {
     display: flex;
     flex-direction: column;
@@ -149,7 +138,6 @@ header h1 {
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Navigation Menu – Single rule for base state */
 .main-nav {
     width: 100%;
     max-width: 600px;
@@ -183,7 +171,6 @@ header h1 {
     transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 
-/* Fixed: Active nav link now has sufficient contrast (dark semi-transparent) */
 .main-nav .nav-link:hover,
 .main-nav .nav-link:focus {
     background-color: rgba(0, 0, 0, 0.5);
@@ -192,7 +179,7 @@ header h1 {
 }
 
 .main-nav .nav-link.active {
-    background-color: rgba(0, 0, 0, 0.6);  /* Darker for active state */
+    background-color: rgba(0, 0, 0, 0.6);
     color: white;
 }
 
@@ -220,7 +207,7 @@ main {
 }
 
 /* ============================================
-   GRID CONTAINER – SINGLE RULE (mobile base)
+   GRID CONTAINER – Mobile: 1 Column
    ============================================ */
 .grid-container {
     display: grid;
@@ -230,7 +217,7 @@ main {
 }
 
 /* ============================================
-   CARD COMPONENT – SINGLE RULES
+   CARD COMPONENT – Mobile Base
    ============================================ */
 .temple-card {
     background-color: var(--color-surface);
@@ -265,7 +252,7 @@ main {
 }
 
 /* ============================================
-   FOOTER COMPONENT – SINGLE RULE
+   FOOTER COMPONENT – Mobile Base
    ============================================ */
 .site-footer {
     background: linear-gradient(180deg, var(--color-text-heading) 0%, var(--color-footer-dark) 100%);
@@ -313,130 +300,6 @@ main {
 }
 
 /* ============================================
-   RESPONSIVE OVERRIDES – @media queries only
-   (No duplicate top-level selectors below)
-   ============================================ */
-
-/* TABLET & DESKTOP (768px+) */
-@media (min-width: 768px) {
-    /* HEADER – horizontal layout */
-    .header-content {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .hamburger {
-        display: none;
-    }
-
-    .main-nav {
-        max-height: none;
-        overflow: visible;
-    }
-
-    .main-nav ul {
-        flex-direction: row;
-        gap: var(--space-md);
-    }
-
-    .main-nav .nav-link {
-        font-size: var(--font-size-base);
-        padding: var(--space-sm) var(--space-lg);
-    }
-
-    /* GRID – multi-column */
-    .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: var(--space-xl);
-    }
-
-    /* CARD – desktop enhancements */
-    .temple-card img {
-        height: 260px;
-        transition: transform var(--transition-smooth);
-    }
-
-    .temple-card:hover img {
-        transform: scale(1.02);
-    }
-
-    .temple-card figcaption {
-        font-size: var(--font-size-xl);
-        padding: var(--space-lg);
-    }
-
-    header h1 {
-        font-size: var(--font-size-2xl);
-    }
-
-    /* FOOTER – larger */
-    .site-footer {
-        padding: var(--space-3xl) var(--space-lg);
-    }
-
-    .footer-content {
-        gap: var(--space-md);
-    }
-
-    .copyright {
-        font-size: var(--font-size-xl);
-    }
-
-    .last-modified {
-        font-size: var(--font-size-base);
-    }
-
-    .copyright::after {
-        width: 60px;
-        margin: var(--space-md) auto 0;
-    }
-}
-
-/* LARGE DESKTOP (1024px+) */
-@media (min-width: 1024px) {
-    .grid-container {
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--space-2xl);
-    }
-
-    .temple-card img {
-        height: 300px;
-    }
-
-    .temple-card figcaption {
-        font-size: var(--font-size-2xl);
-    }
-
-    header h1 {
-        font-size: var(--font-size-3xl);
-    }
-
-    main {
-        padding: var(--space-3xl) var(--space-xl);
-    }
-}
-
-/* SMALL MOBILE (480px and below) */
-@media (max-width: 480px) {
-    body {
-        padding: var(--space-sm);
-    }
-
-    header h1 {
-        font-size: var(--font-size-lg);
-    }
-
-    .temple-card img {
-        height: 180px;
-    }
-
-    .site-footer {
-        padding: var(--space-xl) var(--space-md);
-    }
-}
-
-/* ============================================
    ACCESSIBILITY
    ============================================ */
 :focus-visible {
@@ -457,4 +320,25 @@ main {
 
 .skip-link:focus {
     top: 0;
+}
+
+/* ============================================
+   SMALL MOBILE ADJUSTMENTS (480px and below)
+   ============================================ */
+@media (max-width: 480px) {
+    body {
+        padding: var(--space-sm);
+    }
+
+    header h1 {
+        font-size: var(--font-size-lg);
+    }
+
+    .temple-card img {
+        height: 180px;
+    }
+
+    .site-footer {
+        padding: var(--space-xl) var(--space-md);
+    }
 }
