@@ -1,5 +1,6 @@
-/* temples.css – Refactored Mobile-First Base Styles
-   Consolidated to eliminate duplicate rules, conflicts, and inconsistencies
+/* temples.css – Fully Consolidated Single-Stylesheet
+   Mobile-first with all responsive overrides in @media queries
+   No duplicate selectors – each appears exactly once
 */
 
 /* ============================================
@@ -85,7 +86,7 @@ body {
 }
 
 /* ============================================
-   HEADER & NAVIGATION (Consolidated)
+   HEADER & NAVIGATION
    ============================================ */
 header {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
@@ -111,10 +112,10 @@ header h1 {
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
-    position: relative;
+    position: relative; /* positioning context for absolute hamburger */
 }
 
-/* Hamburger Icon – Mobile Only (positioned absolute right) */
+/* Hamburger Icon – Mobile Only */
 .hamburger {
     display: flex;
     flex-direction: column;
@@ -149,7 +150,7 @@ header h1 {
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Navigation Menu – Mobile (vertical, hidden by default) */
+/* Navigation Menu – Mobile (vertical, collapsible) */
 .main-nav {
     width: 100%;
     max-width: 600px;
@@ -260,7 +261,7 @@ main {
 }
 
 /* ============================================
-   FOOTER COMPONENT (Consolidated)
+   FOOTER COMPONENT
    ============================================ */
 .site-footer {
     background: linear-gradient(180deg, var(--color-text-heading) 0%, var(--color-footer-dark) 100%);
@@ -277,10 +278,9 @@ main {
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: var(--space-sm); /* Mobile: tighter spacing */
+    gap: var(--space-sm);
 }
 
-/* Copyright line – prominent */
 .copyright {
     font-family: var(--font-heading);
     font-size: var(--font-size-lg);
@@ -290,7 +290,6 @@ main {
     opacity: 1;
 }
 
-/* Last modified line – subtle */
 .last-modified {
     font-family: var(--font-body);
     font-size: var(--font-size-sm);
@@ -300,7 +299,6 @@ main {
     letter-spacing: 0.02em;
 }
 
-/* Subtle separator between lines */
 .copyright::after {
     content: "";
     display: block;
@@ -311,22 +309,20 @@ main {
 }
 
 /* ============================================
-   RESPONSIVE ENHANCEMENTS – Tablet & Up (768px+)
+   RESPONSIVE: TABLET & DESKTOP (768px+)
    ============================================ */
 @media (min-width: 768px) {
-    /* HEADER: horizontal nav layout */
+    /* HEADER – horizontal layout */
     .header-content {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
     }
 
-    /* Hide hamburger on desktop */
     .hamburger {
         display: none;
     }
 
-    /* Navigation: horizontal flexbox */
     .main-nav {
         max-height: none;
         overflow: visible;
@@ -340,17 +336,15 @@ main {
     .main-nav .nav-link {
         font-size: var(--font-size-base);
         padding: var(--space-sm) var(--space-lg);
-        border-radius: var(--border-radius-sm);
-        transition: background-color var(--transition-fast);
     }
 
-    /* GRID: multi-column layout */
+    /* GRID – multi-column */
     .grid-container {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: var(--space-xl);
     }
 
-    /* CARD: enhanced for larger screens */
+    /* CARD – desktop enhancements */
     .temple-card img {
         height: 260px;
         transition: transform var(--transition-smooth);
@@ -365,14 +359,18 @@ main {
         padding: var(--space-lg);
     }
 
-    /* HEADER typography scale */
+    /* HEADER typography */
     header h1 {
         font-size: var(--font-size-2xl);
     }
 
-    /* FOOTER: larger padding and text */
+    /* FOOTER – larger */
     .site-footer {
         padding: var(--space-3xl) var(--space-lg);
+    }
+
+    .footer-content {
+        gap: var(--space-md);
     }
 
     .copyright {
@@ -381,10 +379,6 @@ main {
 
     .last-modified {
         font-size: var(--font-size-base);
-    }
-
-    .footer-content {
-        gap: var(--space-md); /* Desktop: more breathing room */
     }
 
     .copyright::after {
@@ -416,6 +410,27 @@ main {
 
     main {
         padding: var(--space-3xl) var(--space-xl);
+    }
+}
+
+/* ============================================
+   SMALL MOBILE ADJUSTMENTS (480px and below)
+   ============================================ */
+@media (max-width: 480px) {
+    body {
+        padding: var(--space-sm);
+    }
+
+    header h1 {
+        font-size: var(--font-size-lg);
+    }
+
+    .temple-card img {
+        height: 180px;
+    }
+
+    .site-footer {
+        padding: var(--space-xl) var(--space-md);
     }
 }
 
