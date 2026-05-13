@@ -79,8 +79,9 @@ body {
    HEADER & NAVIGATION – Mobile Base Styles
    ============================================ */
 header {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
-    color: white;
+    background-color: var(--color-primary); /* Fallback to solid dark blue */
+    background: linear-gradient(135deg, #1e3a8a 0%, var(--color-primary-hover) 100%); /* Slightly darker start color */
+    color: #ffffff; /* Explicitly white for maximum contrast */
     padding: var(--space-md) var(--space-lg);
     box-shadow: var(--shadow-md);
     position: relative;
@@ -173,14 +174,14 @@ header h1 {
 
 .main-nav .nav-link:hover,
 .main-nav .nav-link:focus {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    background-color: rgba(0, 0, 0, 0.7); /* Increased opacity for better contrast */
+    color: #ffffff;
     outline: none;
 }
 
 .main-nav .nav-link.active {
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
+    background-color: rgba(0, 0, 0, 0.8); /* Even darker for the active state */
+    color: #ffffff;
 }
 
 /* ============================================
