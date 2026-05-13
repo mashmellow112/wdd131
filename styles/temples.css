@@ -1,4 +1,6 @@
-/* temples.css – Mobile-First Base Styles with CSS Custom Properties */
+/* temples.css – Refactored Mobile-First Base Styles
+   Consolidated to eliminate duplicate rules, conflicts, and inconsistencies
+*/
 
 /* ============================================
    CSS CUSTOM PROPERTIES (Design Tokens)
@@ -13,6 +15,7 @@
     --color-text-heading: #0f172a;   /* Deep slate – excellent contrast */
     --color-text-body: #334155;      /* Medium slate for body text */
     --color-border: #e2e8f0;         /* Light border */
+    --color-footer-dark: #1e293b;    /* Footer gradient end */
     --color-shadow: rgba(0, 0, 0, 0.08);
 
     /* Typography – Poppins for headings, Open Sans for body */
@@ -82,7 +85,7 @@ body {
 }
 
 /* ============================================
-   HEADER & NAVIGATION
+   HEADER & NAVIGATION (Consolidated)
    ============================================ */
 header {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
@@ -108,14 +111,10 @@ header h1 {
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
+    position: relative;
 }
 
-/* Mobile Header Layout – Title centered, hamburger at far right */
-header {
-    /* No extra padding needed – hamburger overlays with existing padding */
-}
-
-/* Hamburger Icon – Mobile Only (visible by default on mobile) */
+/* Hamburger Icon – Mobile Only (positioned absolute right) */
 .hamburger {
     display: flex;
     flex-direction: column;
@@ -150,7 +149,7 @@ header {
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Navigation Menu – Flexbox */
+/* Navigation Menu – Mobile (vertical, hidden by default) */
 .main-nav {
     width: 100%;
     max-width: 600px;
@@ -247,7 +246,7 @@ main {
     height: 220px;
     object-fit: cover;
     display: block;
-    background-color: #e2e8f0;
+    background-color: var(--color-border);
 }
 
 .temple-card figcaption {
@@ -261,10 +260,10 @@ main {
 }
 
 /* ============================================
-   FOOTER COMPONENT
+   FOOTER COMPONENT (Consolidated)
    ============================================ */
 .site-footer {
-    background: linear-gradient(180deg, var(--color-text-heading) 0%, #1e293b 100%);
+    background: linear-gradient(180deg, var(--color-text-heading) 0%, var(--color-footer-dark) 100%);
     color: white;
     padding: var(--space-2xl) var(--space-lg);
     margin-top: auto;
@@ -278,7 +277,7 @@ main {
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: var(--space-md);
+    gap: var(--space-sm); /* Mobile: tighter spacing */
 }
 
 /* Copyright line – prominent */
@@ -301,12 +300,7 @@ main {
     letter-spacing: 0.02em;
 }
 
-/* Fine-tune spacing between lines */
-.footer-content {
-    gap: var(--space-sm);
-}
-
-/* Optional subtle separator between lines */
+/* Subtle separator between lines */
 .copyright::after {
     content: "";
     display: block;
@@ -316,8 +310,67 @@ main {
     margin: var(--space-sm) auto 0;
 }
 
-/* Responsive: slightly larger on desktop */
+/* ============================================
+   RESPONSIVE ENHANCEMENTS – Tablet & Up (768px+)
+   ============================================ */
 @media (min-width: 768px) {
+    /* HEADER: horizontal nav layout */
+    .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Hide hamburger on desktop */
+    .hamburger {
+        display: none;
+    }
+
+    /* Navigation: horizontal flexbox */
+    .main-nav {
+        max-height: none;
+        overflow: visible;
+    }
+
+    .main-nav ul {
+        flex-direction: row;
+        gap: var(--space-md);
+    }
+
+    .main-nav .nav-link {
+        font-size: var(--font-size-base);
+        padding: var(--space-sm) var(--space-lg);
+        border-radius: var(--border-radius-sm);
+        transition: background-color var(--transition-fast);
+    }
+
+    /* GRID: multi-column layout */
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--space-xl);
+    }
+
+    /* CARD: enhanced for larger screens */
+    .temple-card img {
+        height: 260px;
+        transition: transform var(--transition-smooth);
+    }
+
+    .temple-card:hover img {
+        transform: scale(1.02);
+    }
+
+    .temple-card figcaption {
+        font-size: var(--font-size-xl);
+        padding: var(--space-lg);
+    }
+
+    /* HEADER typography scale */
+    header h1 {
+        font-size: var(--font-size-2xl);
+    }
+
+    /* FOOTER: larger padding and text */
     .site-footer {
         padding: var(--space-3xl) var(--space-lg);
     }
@@ -331,12 +384,38 @@ main {
     }
 
     .footer-content {
-        gap: var(--space-md);
+        gap: var(--space-md); /* Desktop: more breathing room */
     }
 
     .copyright::after {
         width: 60px;
         margin: var(--space-md) auto 0;
+    }
+}
+
+/* ============================================
+   LARGE DESKTOP OPTIMIZATION (1024px+)
+   ============================================ */
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-2xl);
+    }
+
+    .temple-card img {
+        height: 300px;
+    }
+
+    .temple-card figcaption {
+        font-size: var(--font-size-2xl);
+    }
+
+    header h1 {
+        font-size: var(--font-size-3xl);
+    }
+
+    main {
+        padding: var(--space-3xl) var(--space-xl);
     }
 }
 
