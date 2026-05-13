@@ -1,0 +1,56 @@
+/* media-query-large.css – Enhanced Styles for Tablet & Desktop (768px+) */
+
+/* ============================================
+   TWO-COLUMN GRID LAYOUT
+   ============================================ */
+.grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+}
+
+/* ============================================
+   ENHANCED CARD STYLING FOR LARGER VIEWPORTS
+   ============================================ */
+.card {
+    padding: var(--space-6);
+    border-radius: var(--border-radius-lg);
+}
+
+.card h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-4);
+}
+
+.card p {
+    font-size: var(--font-size-lg);
+    line-height: 1.7;
+}
+
+/* ============================================
+   HEADER TYPOGRAPHY SCALE-UP
+   ============================================ */
+header h1 {
+    font-size: var(--font-size-2xl);
+}
+
+header .subtitle {
+    font-size: var(--font-size-base);
+}
+
+/* ============================================
+   BREAKPOINT: LARGE DESKTOP (1024px+)
+   Optional fine-tuning for ultra-wide screens
+   ============================================ */
+@media (min-width: 1024px) {
+    .grid-container {
+        gap: var(--space-8);
+    }
+
+    .card {
+        padding: var(--space-8);
+    }
+
+    header h1 {
+        font-size: 2.5rem; /* Slightly larger on big screens */
+    }
+}
