@@ -37,12 +37,24 @@
     </main>
 
     <footer role="contentinfo">
-        <p></span> SAMANAY IMMANUEL</p>
+        <p>&copy; <span id="year"></span> Samanya Immanuel • Last modified: <span id="last-modified"></span></p>
     </footer>
 
     <script>
         // Dynamically update copyright year
-        document.getElementById('year').textContent = new Date().getFullYear();
+        const yearSpan = document.getElementById('year');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+
+        // Dynamically display file's last modified date
+        const modifiedSpan = document.getElementById('last-modified');
+        if (modifiedSpan) {
+            const lastModified = document.lastModified;
+            const date = new Date(lastModified);
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            modifiedSpan.textContent = date.toLocaleDateString('en-US', options);
+        }
     </script>
 </body>
 </html>

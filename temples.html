@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Temple Album – A responsive gallery showcasing temples from around the world">
+    <meta name="author" content="Your Name">
+    <title>Temple Album – WDD 131</title>
+
+    <!-- Google Fonts: Poppins for headings, Open Sans for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets – Mobile First -->
+    <link rel="stylesheet" href="styles/temples.css">
+    <link rel="stylesheet" href="styles/temples-large.css" media="screen and (min-width: 768px)">
+
+    <!-- JavaScript – Deferred -->
+    <script src="scripts/temples.js" defer></script>
+</head>
+<body>
+    <header role="banner">
+        <div class="header-content">
+            <h1>Temple Album</h1>
+            <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <nav class="main-nav" id="main-nav" aria-label="Temple navigation">
+                <ul>
+                    <li><a href="#" class="nav-link active">Home</a></li>
+                    <li><a href="#old" class="nav-link">Old</a></li>
+                    <li><a href="#new" class="nav-link">New</a></li>
+                    <li><a href="#large" class="nav-link">Large</a></li>
+                    <li><a href="#small" class="nav-link">Small</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main role="main">
+        <section class="gallery-intro">
+            <p>A sacred collection of temples from across the world. Select a category or browse all.</p>
+        </section>
+
+        <section class="grid-container" id="temple-grid" aria-label="Temple gallery">
+            <figure class="temple-card">
+                <img src="images/laie_hawaii_temple_lds.jpeg" alt="Laie Hawaii Temple">
+                <figcaption>Laie Hawaii Temple</figcaption>
+            </figure>
+
+            <figure class="temple-card">
+                <img src="images/salt_lake_temple_renovation_rendering.jpeg" alt="Salt Lake Temple">
+                <figcaption>Salt Lake Temple</figcaption>
+            </figure>
+
+            <figure class="temple-card">
+                <img src="images/kansas-city-exterior-evening.jpg" alt="Mormon Bridge Temple">
+                <figcaption>Mormon Bridge Temple</figcaption>
+            </figure>
+
+            <figure class="temple-card">
+                <img src="images/download (1).jfif" alt="Carthage Jail Temple">
+                <figcaption>Carthage Jail Temple</figcaption>
+            </figure>
+
+            <figure class="temple-card">
+                <img src="images/download (2).jfif" alt="Provo City Center Temple">
+                <figcaption>Provo City Center Temple</figcaption>
+            </figure>
+
+
+            <figure class="temple-card">
+                <img src="images/download.jfif" alt="Jerusalem Israel Temple">
+                <figcaption>Jerusalem Israel Temple</figcaption>
+            </figure>
+        </section>
+    </main>
+
+    <footer role="contentinfo" class="site-footer">
+        <div class="footer-content">
+            <p class="copyright">&copy; <span id="year"></span> 🌺 Samanya Immanuel 🌺 Uganda</p>
+            <p class="last-modified">Last Modification: <span id="last-modified-timestamp"></span></p>
+        </div>
+    </footer>
+</body>
+</html>

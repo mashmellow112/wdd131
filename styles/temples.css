@@ -1,0 +1,365 @@
+/* temples.css – Mobile-First Base Styles with CSS Custom Properties */
+
+/* ============================================
+   CSS CUSTOM PROPERTIES (Design Tokens)
+   ============================================ */
+:root {
+    /* Color Palette – Sophisticated & WCAG AA Compliant */
+    --color-primary: #1d4ed8;        /* Rich blue – brand color */
+    --color-primary-hover: #1e40af;  /* Darker for hover */
+    --color-accent: #f59e0b;         /* Warm amber for highlights */
+    --color-background: #f8fafc;     /* Light slate background */
+    --color-surface: #ffffff;        /* White surface */
+    --color-text-heading: #0f172a;   /* Deep slate – excellent contrast */
+    --color-text-body: #334155;      /* Medium slate for body text */
+    --color-border: #e2e8f0;         /* Light border */
+    --color-shadow: rgba(0, 0, 0, 0.08);
+
+    /* Typography – Poppins for headings, Open Sans for body */
+    --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 2rem;
+    --font-size-3xl: 2.5rem;
+
+    /* Spacing Scale */
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+
+    /* Borders & Radius */
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 16px;
+
+    /* Shadows – Layered Depth */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.12);
+    --shadow-hover: 0 16px 32px rgba(0, 0, 0, 0.16);
+
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-smooth: 250ms ease;
+    --transition-slow: 400ms ease;
+
+    /* Layout */
+    --max-width-container: 1400px;
+    --max-width-content: 1200px;
+}
+
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--color-text-body);
+    background-color: var(--color-background);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================================
+   HEADER & NAVIGATION
+   ============================================ */
+header {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+    color: white;
+    padding: var(--space-md) var(--space-lg);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    z-index: 100;
+}
+
+header h1 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.header-content {
+    max-width: var(--max-width-container);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+/* Mobile Header Layout – Title centered, hamburger at far right */
+header {
+    /* No extra padding needed – hamburger overlays with existing padding */
+}
+
+/* Hamburger Icon – Mobile Only (visible by default on mobile) */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-sm);
+    z-index: 101;
+    position: absolute;
+    top: 50%;
+    right: var(--space-lg);
+    transform: translateY(-50%);
+}
+
+.hamburger-line {
+    width: 28px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: transform var(--transition-smooth), opacity var(--transition-smooth);
+}
+
+/* Hamburger → X transformation (active state) */
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Navigation Menu – Flexbox */
+.main-nav {
+    width: 100%;
+    max-width: 600px;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height var(--transition-smooth);
+}
+
+.main-nav.open {
+    max-height: 300px;
+}
+
+.main-nav ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: var(--space-sm);
+    padding: var(--space-md) 0;
+}
+
+.main-nav .nav-link {
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: var(--font-size-lg);
+    text-align: center;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--border-radius-sm);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.main-nav .nav-link:hover,
+.main-nav .nav-link:focus,
+.main-nav .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    outline: none;
+}
+
+/* ============================================
+   MAIN CONTENT AREA
+   ============================================ */
+main {
+    flex: 1;
+    width: 100%;
+    max-width: var(--max-width-content);
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-lg);
+}
+
+.gallery-intro {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.gallery-intro p {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-body);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   GRID CONTAINER – Mobile First: 1 Column
+   ============================================ */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    width: 100%;
+}
+
+/* ============================================
+   CARD COMPONENT
+   ============================================ */
+.temple-card {
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+    border: 1px solid var(--color-border);
+}
+
+.temple-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+.temple-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    background-color: #e2e8f0;
+}
+
+.temple-card figcaption {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-text-heading);
+    padding: var(--space-md);
+    text-align: center;
+    background-color: var(--color-surface);
+}
+
+/* ============================================
+   FOOTER COMPONENT
+   ============================================ */
+.site-footer {
+    background: linear-gradient(180deg, var(--color-text-heading) 0%, #1e293b 100%);
+    color: white;
+    padding: var(--space-2xl) var(--space-lg);
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: var(--max-width-content);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: var(--space-md);
+}
+
+/* Copyright line – prominent */
+.copyright {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0;
+    opacity: 1;
+}
+
+/* Last modified line – subtle */
+.last-modified {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    font-weight: 400;
+    opacity: 0.7;
+    margin: 0;
+    letter-spacing: 0.02em;
+}
+
+/* Fine-tune spacing between lines */
+.footer-content {
+    gap: var(--space-sm);
+}
+
+/* Optional subtle separator between lines */
+.copyright::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    margin: var(--space-sm) auto 0;
+}
+
+/* Responsive: slightly larger on desktop */
+@media (min-width: 768px) {
+    .site-footer {
+        padding: var(--space-3xl) var(--space-lg);
+    }
+
+    .copyright {
+        font-size: var(--font-size-xl);
+    }
+
+    .last-modified {
+        font-size: var(--font-size-base);
+    }
+
+    .footer-content {
+        gap: var(--space-md);
+    }
+
+    .copyright::after {
+        width: 60px;
+        margin: var(--space-md) auto 0;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+/* Skip link (optional – for accessibility) */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    background: var(--color-primary);
+    color: white;
+    padding: var(--space-sm) var(--space-md);
+    z-index: 1000;
+    transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+    top: 0;
+}
