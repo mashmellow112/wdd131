@@ -1,0 +1,54 @@
+body {
+	font-family: Roboto, helvetica, sans-serif;
+}
+
+header,
+main,
+footer {
+	max-width: 760px;
+	margin: 0 auto;
+}
+
+/* Styles for the new banner */
+.banner {
+    padding: 1rem;
+    background-color: #eee; /* Light background for the banner */
+    text-align: center; /* Center the text within the banner */
+}
+
+h1 {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+main {
+	display: grid;
+    /* Lay out content in two columns for article and list */
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem; /* Add some spacing between grid items */
+}
+
+h2 {
+	color: navy;
+	text-align: left; /* Left-align the h2 heading */
+    /* Make h2 span across both columns */
+    grid-column: 1 / -1;
+}
+
+article p {
+	text-align: justify;
+}
+
+.callout {
+	color: #FFFFFF; /* Changed for better contrast (passes WCAG AA & AAA) */
+	background-color: #702963; /* Original background color */
+    padding: 1rem; /* Added padding for better visual spacing */
+    /* Make the callout span across both columns */
+    grid-column: 1 / -1;
+}
+
+footer {
+	margin-top: 1rem;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	font-size: smaller;
+	text-align: left; /* Move footer content to the left */
+}
