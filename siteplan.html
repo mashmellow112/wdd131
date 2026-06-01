@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Planning Document - Global Sanctuary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
+    
+    <style>
+        /* -----------------------------------------------------------
+           COLOR SCHEMA & TYPOGRAPHY APPLICATION
+           These styles apply your chosen design system directly to the plan.
+        ----------------------------------------------------------- */
+        :root {
+            --primary-color: #1a5276;     /* Deep Blue - Used for Headings/Header */
+            --secondary-color: #e67e22;   /* Vibrant Orange - Used for Accents/Callouts */
+            --accent-color: #f4f6f7;      /* Light Gray - Used for section backgrounds */
+            --text-color: #2c3e50;        /* Dark Charcoal - Used for body text */
+            --heading-font: 'Montserrat', sans-serif;
+            --body-font: 'Open Sans', sans-serif;
+        }
+
+        body {
+            font-family: var(--body-font);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: var(--heading-font);
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 0.5rem 0 0 0;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        h2 {
+            font-family: var(--heading-font);
+            color: var(--primary-color);
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 10px;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            font-family: var(--heading-font);
+            color: var(--text-color);
+            margin-top: 1.5rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .color-palette {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .color-box {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .color-sample {
+            height: 80px;
+        }
+
+        .color-label {
+            padding: 0.5rem;
+            background: #fff;
+            font-size: 0.9rem;
+        }
+
+        .wireframe-placeholder {
+            background-color: var(--accent-color);
+            border: 2px dashed var(--primary-color);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 1rem;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Website Planning Document</h1>
+        <p>W05 Project Plan for Global Sanctuary</p>
+    </header>
+
+    <main>
+        <section id="site-name">
+            <h2>Site Name</h2>
+            <p><strong>Proposed Name:</strong> Global Sanctuary: The Temple Explorer</p>
+            <h3>Why this name?</h3>
+            <p>The name suggests a peaceful, comprehensive guide to sacred spaces worldwide. It emphasizes the "explorer" aspect, encouraging users to discover historical and architectural wonders across different cultures.</p>
+        </section>
+
+        <section id="site-purpose">
+            <h2>Site Purpose</h2>
+            <p>The purpose of this site is to provide a responsive and interactive gallery of temples from around the world. It will serve as an educational resource for historians and a travel guide for cultural explorers, offering filtering capabilities based on size, age, and location, as well as a community-driven review system.</p>
+        </section>
+
+        <section id="scenarios">
+            <h2>Scenarios</h2>
+            <p>The target audience for this website will likely ask the following questions when visiting:</p>
+            <ul>
+                <li><strong>Scenario 1:</strong> Which historical temples in Southeast Asia were built before the 12th century?</li>
+                <li><strong>Scenario 2:</strong> I am a student traveler; where can I find a list of "small" or "local" temples that aren't overcrowded by tourists?</li>
+            </ul>
+        </section>
+
+        <section id="color-schema">
+            <h2>Color Schema</h2>
+            <p>The following colors have been selected to establish a clean and professional tone for the site:</p>
+            
+            <div class="color-palette">
+                <div class="color-box">
+                    <div class="color-sample" style="background-color: #1a5276;"></div>
+                    <div class="color-label">
+                        <strong>Primary: Deep Blue</strong><br>
+                        #1a5276<br>
+                        (Headings, Nav)
+                    </div>
+                </div>
+                <div class="color-box">
+                    <div class="color-sample" style="background-color: #e67e22;"></div>
+                    <div class="color-label">
+                        <strong>Secondary: Orange</strong><br>
+                        #e67e22<br>
+                        (Accents, Borders)
+                    </div>
+                </div>
+                <div class="color-box">
+                    <div class="color-sample" style="background-color: #f4f6f7;"></div>
+                    <div class="color-label">
+                        <strong>Neutral: Light Gray</strong><br>
+                        #f4f6f7<br>
+                        (Section Backgrounds)
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top: 1rem;"><em>Note: These exact project colors have been applied directly to style this planning document.</em></p>
+        </section>
+
+        <section id="typography">
+            <h2>Typography</h2>
+            <p>To ensure a highly readable and modern user experience, the following fonts are specified:</p>
+            <ul>
+                <li><strong>Heading Font:</strong> <em>Montserrat</em> (Sans-Serif) — Used for main headers and section titles to convey authority and modernity.</li>
+                <li><strong>Body Font:</strong> <em>Open Sans</em> (Sans-Serif) — Chosen for its high legibility in long paragraph text and technical details.</li>
+            </ul>
+        </section>
+
+        <section id="wireframes">
+            <h2>Wireframes</h2>
+            <p>Below are layout concepts representing the spatial relationships for the main home page layout across screen break-points.</p>
+            
+            <h3>Mobile View Layout Plan</h3>
+            <div class="wireframe-placeholder">
+                <p>[Mobile Wireframe: Stacked Layout]</p>
+                <p style="font-size: 0.9rem; font-weight: normal; margin-top: 0.5rem;">
+                    Header with centered logo -> Hamburger menu for nav -> Hero banner -> Single column of temple cards (Image on top, details below) -> Single column footer.
+                </p>
+            </div>
+
+            <h3>Desktop View Layout Plan</h3>
+            <div class="wireframe-placeholder">
+                <p>[Desktop Wireframe: Grid Layout]</p>
+                <p style="font-size: 0.9rem; font-weight: normal; margin-top: 0.5rem;">
+                    Horizontal navigation bar -> Full-width hero section -> 3-column grid of temple cards with hover effects -> Multi-column footer with social links and modification date.
+                </p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
