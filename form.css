@@ -1,0 +1,108 @@
+:root {
+    --primary-color: #3b0d36;
+    --bg-color: #f0f0f5;
+    --form-bg: #ffffff;
+    --text-color: #333;
+    --accent-color: #fff;
+    --border-color: #ddd;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header, footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+main {
+    flex: 1;
+    max-width: 600px;
+    width: 90%;
+    margin: 2rem auto;
+}
+
+form, .confirmation-container {
+    background-color: var(--form-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.subtext, .optional {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+input[type="text"], input[type="date"], select, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.rating-container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.radio-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.stars {
+    font-size: 1.2rem;
+    color: #f39c12;
+}
+
+.checkbox-group label {
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: opacity 0.2s;
+}
+
+.submit-btn:hover { opacity: 0.9; }
+
+.counter-box { margin: 1.5rem 0; padding: 1rem; background: #f9f9f9; border-left: 5px solid var(--primary-color); }
+
+.back-link { color: var(--primary-color); text-decoration: none; font-weight: bold; }
