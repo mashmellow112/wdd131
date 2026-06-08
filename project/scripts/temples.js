@@ -1,4 +1,4 @@
-/* temples.js – Temple Album Application Logic */
+/* project/scripts/temples.js – Temple Album Application Logic */
 
 /**
  * Temple Album – JavaScript Module
