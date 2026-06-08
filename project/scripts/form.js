@@ -44,7 +44,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+    // Function 3: Implement localStorage for form submission count
+    const trackFormSubmissions = () => {
+        let submissionCount = localStorage.getItem('formSubmissions');
+        if (submissionCount) {
+            submissionCount = parseInt(submissionCount) + 1;
+        } else {
+            submissionCount = 1;
+        }
+        localStorage.setItem('formSubmissions', submissionCount);
+        console.log(`Form submitted ${submissionCount} times.`); // For demonstration
+    };
+
     // Execution
     populateProducts(products);
     setLastModified();
+
+    // Example of how you might call trackFormSubmissions on form submission
+    // const reviewForm = document.getElementById('review-form'); // Assuming your form has this ID
+    // if (reviewForm) {
+    //     reviewForm.addEventListener('submit', trackFormSubmissions);
+    // }
 });
