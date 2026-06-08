@@ -44,20 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Function 3: Handle localStorage for Review Counter
-    const handleReviewCounter = () => {
-        const reviewCounterDisplay = document.getElementById("review-counter");
-        // Conditional branching to check if we are on the confirmation page
-        if (reviewCounterDisplay) {
-            let count = Number(window.localStorage.getItem("reviewSubmissions")) || 0;
-            count++;
-            window.localStorage.setItem("reviewSubmissions", count);
-            reviewCounterDisplay.textContent = `${count}`;
-        }
-    };
-
     // Execution
     populateProducts(products);
     setLastModified();
-    handleReviewCounter();
 });
