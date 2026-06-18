@@ -3,57 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WDD 131 – Dynamic Web Fundamentals – Samanya Immanuel</title>
-    <meta name="description" content="WDD 131 – Dynamic Web Fundamentals portfolio for Samanya Immanuel. Personal profile, local web development resources, and course project links.">
-    <meta name="author" content="Samanya Immanuel">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/main.css">
-    <script src="scripts/main.js" defer></script>
+    <title>Local Explorers | Home</title>
+    <meta name="description" content="Discover unique local spots, hidden gems, and community adventures.">
+    <link rel="stylesheet" href="styles/project.css">
+    <script src="scripts/project.js" defer></script>
 </head>
 <body>
     <header>
-        <span id="course-title">WDD 131 – Dynamic Web Fundamentals</span>
-        <nav>
-            <ul>
-                <li><a href="design.html">Design Principles</a></li>
-                <li><a href="siteplan.html">Website Planning Document</a></li>
-                <li><a href="place.html">Country Page</a></li>
-            </ul>
+        <div class="logo-area">
+            <h1>🌍 LocalExplorers</h1>
+        </div>
+        <button id="menu-toggle" aria-label="Toggle Navigation">☰</button>
+        <nav id="main-nav">
+            <a href="index.html" class="active">Home</a>
+            <a href="directory.html">Explore</a>
+            <a href="join.html">Join Us</a>
         </nav>
     </header>
 
     <main>
-        <h1>Samanya Immanuel</h1>
-        <div class="grid-container">
-            <section class="card about">
-                <h2>About Me</h2>
-                <img src="images/samanya.webp" alt="Profile illustration for Samanya Immanuel" class="card-img">
-                <div class="content">
-                    <p>My name is Samanya Immanuel and I live in Kampala, Uganda. I am currently working as an administrative legal assistant and I enjoy learning web development, building responsive layouts, and creating accessible interfaces.</p>
-                    <p>My work emphasizes strong design, readable structure, and usability. This WDD 131 page uses semantic HTML, CSS Grid, Flexbox navigation, and local image assets.</p>
-                </div>
-            </section>
+        <section class="hero">
+            <h2>Adventure Awaits Around the Corner</h2>
+            <p>Stop traveling like a tourist. Start exploring like a local.</p>
+        </section>
 
-            <section class="card resources">
-                <h2>Course Resources</h2>
-                <img src="images/resources.svg" alt="Illustration of web development resources" class="card-img" loading="lazy">
-                <div class="content">
-                    <p>These links support WDD 131 – Dynamic Web Fundamentals and highlight useful references for HTML, CSS, JavaScript, and modern web design.</p>
-                    <ul>
-                        <li><a href="design.html" target="_blank" rel="noopener">Design Principles</a></li>
-                        <li><a href="siteplan.html" target="_blank" rel="noopener">Website Planning Document</a></li>
-                        <li><a href="place.html" target="_blank" rel="noopener">Country Page</a></li>
-                    </ul>
-                </div>
-            </section>
-        </div>
+        <section class="welcome-grid reveal">
+            <div class="card">
+                <h3>Our Mission</h3>
+                <p>We connect passionate travelers with authentic, sustainable, and vendor-owned local experiences.</p>
+            </div>
+            <div class="card highlight-card">
+                <h3>Tip of the Day</h3>
+                <p id="dynamic-tip">Loading your daily adventure tip...</p>
+            </div>
+        </section>
+
+        <section class="featured-image-container reveal">
+            <img src="images/images.png" data-src="images/images.png" alt="Scenic mountain valley pathway in the Pacific Northwest" loading="lazy" class="lazy-image">
+        </section>
     </main>
 
     <footer>
-        <p>&copy;<span id="currentyear"></span> Samanya Immanuel • Uganda</p>
-        <p id="lastModified"></p>
+        <p>&copy; <span id="current-year"></span> | Local Explorers Project | <a href="references.html">References Page</a></p>
+        <p>Last Modified: <span id="last-modified"></span></p>
     </footer>
 </body>
 </html>

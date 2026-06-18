@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Community | Local Explorers</title>
+    <link rel="stylesheet" href="styles/project.css">
+    <script src="scripts/project.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>🌍 LocalExplorers</h1>
+        <button id="menu-toggle" aria-label="Toggle Navigation">☰</button>
+        <nav id="main-nav">
+            <a href="index.html">Home</a>
+            <a href="directory.html">Explore</a>
+            <a href="join.html" class="active">Join Us</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Community Sign-Up</h2>
+        <form id="membership-form" method="get" action="join.html">
+            <label for="username">Full Name *</label>
+            <input type="text" id="username" name="username" required autocomplete="name">
+
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+
+            <label for="experience-level">Your Exploration Level</label>
+            <select id="experience-level" name="level">
+                <option value="casual">Casual Wanderer</option>
+                <option value="backpacker">Backpacker</option>
+                <option value="survivalist">Wilderness Guru</option>
+            </select>
+
+            <button type="submit" class="submit-btn">Submit Application</button>
+        </form>
+
+        <div id="form-feedback" class="feedback-box hidden"></div>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> | Local Explorers Project | <a href="references.html">References Page</a></p>
+        <p>Last Modified: <span id="last-modified"></span></p>
+    </footer>
+</body>
+</html>

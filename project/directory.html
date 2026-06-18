@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Gems | Local Explorers</title>
+    <link rel="stylesheet" href="styles/project.css">
+    <script src="scripts/project.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>🌍 LocalExplorers</h1>
+        <button id="menu-toggle" aria-label="Toggle Navigation">☰</button>
+        <nav id="main-nav">
+            <a href="index.html">Home</a>
+            <a href="directory.html" class="active">Explore</a>
+            <a href="join.html">Join Us</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Hidden Gems Directory</h2>
+        <div class="filter-controls">
+            <button id="filter-all" class="btn active">Show All</button>
+            <button id="filter-free" class="btn">Free Spots</button>
+        </div>
+
+        <div id="directory-grid" class="grid-container"></div>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> | Local Explorers Project | <a href="references.html">References Page</a></p>
+        <p>Last Modified: <span id="last-modified"></span></p>
+    </footer>
+</body>
+</html>

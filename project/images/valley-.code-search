@@ -1,0 +1,9 @@
+# Query: valley-
+# ContextLines: 1
+
+1 result - 1 file
+
+project\index.html:
+  41          <section class="featured-image-container reveal">
+  42:             <img src="images/images (1).png" data-src="images/images.png " alt="Scenic mountain valley pathway in the Pacific Northwest" loading="lazy" class="lazy-image">
+  43          </section>
